@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background-50: 0.96 0.010 73;
+    --background-100: 0.94 0.012 73;
+    --background-200: 0.90 0.015 73;
+    --background-300: 0.86 0.018 73;
+    --background-400: 0.81 0.020 73;
+    --background-500: 0.76 0.022 73;
+    --background-600: 0.69 0.020 73;
+    --background-700: 0.61 0.018 73;
+    --background-800: 0.50 0.014 73;
+    --background-900: 0.38 0.010 73;
+    --background-950: 0.25 0.006 73;
+
+    --primary-50: 0.96 0.008 148;
+    --primary-100: 0.91 0.012 148;
+    --primary-200: 0.84 0.016 148;
+    --primary-300: 0.77 0.020 148;
+    --primary-400: 0.69 0.022 148;
+    --primary-500: 0.62 0.024 148;
+    --primary-600: 0.55 0.022 148;
+    --primary-700: 0.47 0.020 148;
+    --primary-800: 0.39 0.016 148;
+    --primary-900: 0.31 0.012 148;
+    --primary-950: 0.23 0.008 148;
+
+    --accent-50: 0.96 0.020 67;
+    --accent-100: 0.91 0.035 67;
+    --accent-200: 0.84 0.048 67;
+    --accent-300: 0.76 0.058 67;
+    --accent-400: 0.68 0.065 67;
+    --accent-500: 0.60 0.071 67;
+    --accent-600: 0.53 0.065 67;
+    --accent-700: 0.45 0.055 67;
+    --accent-800: 0.37 0.042 67;
+    --accent-900: 0.29 0.028 67;
+    --accent-950: 0.21 0.015 67;
+
+    --secondary-50: 0.96 0.008 62;
+    --secondary-100: 0.93 0.010 62;
+    --secondary-200: 0.90 0.012 62;
+    --secondary-300: 0.87 0.014 62;
+    --secondary-400: 0.85 0.016 62;
+    --secondary-500: 0.83 0.017 62;
+    --secondary-600: 0.74 0.016 62;
+    --secondary-700: 0.64 0.014 62;
+    --secondary-800: 0.53 0.012 62;
+    --secondary-900: 0.41 0.009 62;
+    --secondary-950: 0.27 0.006 62;
+
+    --foreground-50: 0.96 0.002 143;
+    --foreground-100: 0.92 0.002 143;
+    --foreground-200: 0.84 0.003 143;
+    --foreground-300: 0.74 0.004 143;
+    --foreground-400: 0.62 0.004 143;
+    --foreground-500: 0.50 0.005 143;
+    --foreground-600: 0.42 0.005 143;
+    --foreground-700: 0.35 0.005 143;
+    --foreground-800: 0.29 0.005 143;
+    --foreground-900: 0.26 0.005 143;
+    --foreground-950: 0.22 0.005 143;
+
+    --font-heading: "Cormorant Garamond", serif;
+    --font-body: "Montserrat", sans-serif;
+    --font-label: "Montserrat", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    color: oklch(var(--foreground-950));
+    background-color: oklch(var(--background-50));
+    line-height: 1.75;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    line-height: 1.2;
+  }
+}
+
+@layer components {
+  .accent-rule {
+    border-top: 1px solid oklch(var(--accent-500) / 0.6);
+    border-bottom: 1px solid oklch(var(--accent-500) / 0.6);
+    height: 3px;
+  }
+
+  .accent-double-border {
+    box-shadow:
+      0 0 0 1px oklch(var(--accent-500) / 0.35),
+      0 0 0 3px oklch(var(--background-50)),
+      0 0 0 4px oklch(var(--accent-500) / 0.15);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .section-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+}
+
+@layer utilities {
+  .text-shadow-dark {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .grain-overlay {
+    position: relative;
+  }
+  .grain-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 128px 128px;
+    pointer-events: none;
+    z-index: 0;
+  }
+}
