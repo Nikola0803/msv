@@ -1,0 +1,20 @@
+# Vercel Hobby plan caps a deployment at 12 serverless functions.
+# msv/api currently has 14 files — these 3 are excluded to stay under that cap:
+#
+# - api/contact.ts / api/crm-subscribe.ts: fully built and working (same WP
+#   vp-crm plugin vintage peps uses), but nothing in the current msv frontend
+#   calls them — the newsletter popup and coming-soon/funnel forms post
+#   directly to an external readdy.ai form endpoint instead. Safe to exclude
+#   until msv gets its own /contact page or the newsletter is rewired to use
+#   this endpoint — re-include (remove these lines) at that point.
+# - api/test-wc.ts: labeled "DIAGNOSTIC ONLY" in its own header comment, not
+#   referenced anywhere in the app. Safe to exclude (or just delete it).
+api/contact.ts
+api/crm-subscribe.ts
+api/test-wc.ts
+# api/first-order-coupon.ts (added 2026-07-23) was a 4th file pushing this
+# project to 13 active functions, breaking the same Hobby-plan cap above —
+# its logic now lives inside api/validate-coupon.ts (dispatches on body
+# shape: { email } = issue a coupon, { code, orderTotal } = validate one).
+# Kept in repo for reference only.
+api/first-order-coupon.ts

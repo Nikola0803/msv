@@ -1,0 +1,48 @@
+#msvpo-wrap {
+  max-width: 760px;
+}
+
+#msvpo-sortable .msvpo-row {
+  transition: background 0.15s;
+}
+
+#msvpo-sortable .msvpo-row:not(.msvpo-pinned):hover {
+  background: #f0f7ff !important;
+}
+
+#msvpo-sortable .msvpo-row:not(.msvpo-pinned) td:first-child {
+  cursor: grab;
+  font-size: 20px;
+  color: #ccc;
+  text-align: center;
+  user-select: none;
+}
+
+#msvpo-sortable .msvpo-row:not(.msvpo-pinned) td:first-child:hover {
+  color: #666;
+}
+
+#msvpo-sortable .msvpo-row.msvpo-pinned {
+  background: #fffbeb !important;
+  opacity: 0.85;
+}
+
+/* Drag ghost styling */
+#msvpo-sortable .ui-sortable-helper {
+  background: #f0f7ff !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  border-radius: 4px;
+  cursor: grabbing !important;
+}
+
+/* Drop placeholder */
+.msvpo-placeholder {
+  height: 52px;
+  background: #dbeafe;
+  border: 2px dashed #93c5fd;
+  border-radius: 4px;
+}
+
+.msvpo-placeholder td {
+  display: none;
+}
